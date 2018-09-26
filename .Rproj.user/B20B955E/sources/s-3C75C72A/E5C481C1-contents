@@ -1,5 +1,5 @@
 ---
-title:"2018-09-26"
+title: "2018-09-26"
 output: html_notebook
 ---
 
@@ -10,6 +10,27 @@ Try executing this chunk by clicking the *Run* button within the chunk or by pla
 ```{r}
 plot(cars)
 ```
+```{r}
+a<-5
+a2<-5L
+
+```
+
+```{r}
+aVector<-c(5,6,7)
+a2Vector<-c(5L,6L,7L)
+```
+```{r}
+b<-"你好"
+```
+```{r}
+bVector<-c("你好","How are you?")
+```
+class(a)
+
+
+
+
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
 
