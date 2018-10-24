@@ -1,5 +1,5 @@
 ---
-title: "2018-10-17"
+title: "2018-10-24"
 output: html_notebook
 ---
 
@@ -10,17 +10,6 @@ Try executing this chunk by clicking the *Run* button within the chunk or by pla
 ```{r}
 plot(cars)
 ```
-
-```{r}
-a<-c("A, B","B ,C")
-a
-str_split_fixed(a,", ", n=3)->b
-str_c(b)->c
-c
-table(b)
-b
-```
-
 ```{r}
 library(googlesheets)
 ```
@@ -28,20 +17,13 @@ library(googlesheets)
 gs_auth(new_user = TRUE)
 ```
 ```{r}
-gsSurvey<-gs_key("4/ewDS4u45xVX6b6LlO0mDZjk7swQ416UnLXN8Iuxz0mIyC2lx7u--kNg")  #download sheet information as an object
-classSurvey<-gs_read(gsSurvey,ws=1) #access the 1st worksheet
+library(readr)
+student <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv")
+library(dplyr)
+library(magrittr)
+student %<>% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
 ```
-```{r}
-library(googlesheets)
-```
-```{r}
-gs_auth(new_user = TRUE)
-```
-```{r}
-gsSurvey<-gs_key("1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE")  #download sheet information as an object
-classSurvey<-gs_read(gsSurvey,ws=1) #access the 1st worksheet
-```
-
 
 
 
