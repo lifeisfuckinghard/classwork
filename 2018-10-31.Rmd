@@ -1,0 +1,103 @@
+---
+title: "2018-10-31"
+author: "410773012"
+date: "10/31/2018"
+output: html_document
+---
+
+```{r}
+library(googlesheets)
+gs_auth(new_user = TRUE)
+gsSurvey<-gs_key("1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE")  #download sheet information as an object
+classSurvey<-gs_read(gsSurvey,ws=1) #access the 1st worksheet
+```
+
+```{r}
+library(stringr)
+aa<-(str_sub(classSurvey$居住地行政區,1,3))
+classSurvey[aa == "台北市",c("姓名")]
+```
+
+```{r}
+cc<-classSurvey[aa == "台北市",c("姓名")]
+class(cc)
+cc$姓名[3]
+```
+
+```{r}
+bb<-c("a","b","c")
+bb[2]
+```
+
+```{r}
+StuDF <- data.frame(
+  StuID=c(1,2,3,4,5),
+  name=c("小明","大雄","胖虎","小新","大白"),
+  score=c(80,60,90,70,50)
+  )
+StuDF 
+```
+
+```{r}
+names(gsSurvey)
+```
+
+```{r}
+gsSurvey$links$type
+```
+
+```{r}
+names(StuDF)[2] <- c("姓名")
+names(StuDF)
+```
+
+```{r}
+names(StuDF) <- c("學號","姓名","成績")
+names(StuDF)
+```
+
+```{r}
+library(readr)
+student <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv")
+library(dplyr)
+library(magrittr)
+student %<>% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
+```
+```{r}
+levels(student$身高級距)
+```
+```{r}
+library(readr)
+student <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv")
+library(dplyr)
+library(magrittr)
+student %<>% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
+```
+```{r}
+levels(student$身高級距)
+```
+```{r}
+StuDF$成績[c(4)]
+StuDF$成績[c(4)] <- 75
+```
+```{r}
+
+```
+
+
+
+
+
+
+library(stringr)
+x <-str_replace(iPeenData$均消, ",","")
+z <-str_extract_all(x,"[0-9]+")
+as.integer(z)
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
